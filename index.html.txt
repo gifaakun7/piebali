@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pie Susu Bali</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#fafafa;
+text-align:center;
+}
+
+.header{
+background:#d94f4f;
+color:white;
+padding:40px;
+}
+
+.menu{
+padding:30px;
+}
+
+.card{
+background:white;
+margin:20px auto;
+padding:20px;
+width:280px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+.button{
+display:inline-block;
+padding:12px 20px;
+background:#25D366;
+color:white;
+border-radius:8px;
+text-decoration:none;
+margin-top:10px;
+}
+
+.map{
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>Pie Susu Bali</h1>
+<p>Fresh setiap hari - Oleh oleh khas Bali</p>
+</div>
+
+<div class="menu">
+
+<div class="card">
+<h2>Pie Susu Original</h2>
+<p>Rp35.000</p>
+</div>
+
+<div class="card">
+<h2>Pie Susu Coklat</h2>
+<p>Rp40.000</p>
+</div>
+
+<div class="card">
+<h2>Pie Susu Keju</h2>
+<p>Rp40.000</p>
+</div>
+
+<a class="button" href="https://wa.me/6281337573112">
+Order via WhatsApp
+</a>
+
+</div>
+
+<div class="map">
+
+<h2>Lokasi Toko</h2>
+
+<iframe 
+src="https://www.google.com/maps/embed"
+width="90%" 
+height="250"
+style="border:0;">
+</iframe>
+
+</div>
+
+</body>
+</html>
