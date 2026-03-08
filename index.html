@@ -1,50 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Pie Susu Bali</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 
 body{
-font-family:Arial;
+font-family:'Poppins',sans-serif;
 margin:0;
-background:#fafafa;
+background:#f6f6f6;
+}
+
+header{
+background:#d94f4f;
+color:white;
+padding:50px;
 text-align:center;
 }
 
-.header{
-background:#d94f4f;
-color:white;
-padding:40px;
+header h1{
+margin:0;
+font-size:40px;
 }
 
-.menu{
-padding:30px;
+header p{
+opacity:0.9;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-margin:20px auto;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card-content{
 padding:20px;
-width:280px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card h2{
+margin:10px 0;
+}
+
+.price{
+color:#d94f4f;
+font-weight:700;
 }
 
 .button{
-display:inline-block;
-padding:12px 20px;
+display:block;
+width:200px;
+margin:40px auto;
+text-align:center;
 background:#25D366;
 color:white;
-border-radius:8px;
+padding:14px;
+border-radius:10px;
 text-decoration:none;
-margin-top:10px;
+font-weight:600;
 }
 
 .map{
-margin-top:40px;
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
 }
 
 </style>
@@ -53,46 +104,57 @@ margin-top:40px;
 
 <body>
 
-<div class="header">
+<header>
 <h1>Pie Susu Bali</h1>
-<p>Fresh setiap hari - Oleh oleh khas Bali</p>
-</div>
+<p>Oleh-oleh khas Bali yang fresh setiap hari</p>
+</header>
 
-<div class="menu">
+<div class="container">
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1604908177079-98c3d323a4f2">
+<div class="card-content">
 <h2>Pie Susu Original</h2>
-<p>Rp35.000</p>
+<p class="price">Rp35.000</p>
+</div>
 </div>
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1587248720327-8eb72564be1e">
+<div class="card-content">
 <h2>Pie Susu Coklat</h2>
-<p>Rp40.000</p>
+<p class="price">Rp40.000</p>
+</div>
 </div>
 
 <div class="card">
+<img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75">
+<div class="card-content">
 <h2>Pie Susu Keju</h2>
-<p>Rp40.000</p>
+<p class="price">Rp40.000</p>
+</div>
+</div>
+
 </div>
 
 <a class="button" href="https://wa.me/6281337573112">
 Order via WhatsApp
 </a>
 
-</div>
-
 <div class="map">
 
-<h2>Lokasi Toko</h2>
-
-<iframe 
-src="https://www.google.com/maps/embed"
-width="90%" 
-height="250"
+<iframe
+src="https://www.google.com/maps?q=denpasar+bali&output=embed"
+width="100%"
+height="300"
 style="border:0;">
 </iframe>
 
 </div>
+
+<footer>
+Pie Susu Bali • Oleh oleh khas Bali
+</footer>
 
 </body>
 </html>
