@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Resmi - Pie Susu Nirmala Bali</title>
+    <title>Pie Susu Nirmala - Oleh-oleh Khas Bali</title>
     <style>
         /* --- RESET & DASAR --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Balinese', sans-serif; /* Font Balinese */
-            background-color: #fffbf5; /* Warna krem muda */
+            font-family: 'Bebas Neue', cursive;
+            background-color: #FFF9F0; /* Warna krem lembut */
             color: #5d432c;
             line-height: 1.6;
         }
@@ -17,11 +17,11 @@
         /* --- STYLING HEADER --- */
         header {
             text-align: center;
-            padding: 60px 20px;
-            background-color: #fff7d6; /* Warna kuning muda untuk header */
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 80px 20px;
+            background-image: url('bali-landscape.jpg'); /* Gambar pemandangan Bali */
+            background-size: cover;
+            background-position: center;
+            color: white;
             position: relative;
             overflow: hidden;
         }
@@ -29,115 +29,123 @@
         header::before {
             content: '';
             position: absolute;
-            top: -50px; left: -50px;
-            width: 150px; height: 150px;
-            background-image: url('barong.png'); /* Gambar Barong */
-            background-size: cover;
-            opacity: 0.3;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.4); /* Overlay gelap */
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
-            font-size: 3rem;
-            color: #8e6c4f; /* Warna cokelat judul dari contoh */
+            font-size: 4rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-size: 1.2rem;
-            color: #a1887f;
+            font-size: 1.8rem;
             font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         /* --- KONTAINER UTAMA --- */
         .container {
             max-width: 1100px;
-            margin: 40px auto;
+            margin: 60px auto;
             padding: 0 20px;
         }
 
         /* --- SECTION TENTANG --- */
         .about-section {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border-left: 10px solid #f1c40f;
+            padding: 50px;
+            border-radius: 30px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
+        .about-image {
+            flex: 1;
+            height: 300px;
+            background-image: url('pie-susu-bali.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+        }
+
+        .about-text { flex: 2; }
         .about-section h2 {
             color: #e67e22;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
         /* --- SECTION PRICE LIST --- */
         .section-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 3rem;
             color: #8e6c4f;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 80px;
         }
 
         /* Styling Kartu Produk */
         .price-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .price-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        /* Header Kartu dengan Warna Berbeda */
-        .card-header {
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        /* Warna Header Kartu Sesuai Contoh Gambar */
-        .bg-blue-grey { background-color: #90a4ae; }
-        .bg-orange { background-color: #ffb74d; }
-        .bg-terracotta { background-color: #d87060; }
-
-        .card-body {
-            padding: 25px;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .product-image {
-            width: 100%;
-            height: 180px;
+            height: 220px;
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
-            margin-bottom: 20px;
         }
 
         .product-image-original { background-image: url('pie-susu-original.jpg'); }
         .product-image-mix { background-image: url('pie-susu-mix.jpg'); }
         .product-image-kacang { background-image: url('pie-kacang.jpg'); }
-        .product-image-bolu { background-image: url('bolu.jpg'); }
-        .product-image-banana-cake { background-image: url('banana-cake.jpg'); }
-        .product-image-brownies { background-image: url('brownies.jpg'); }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            color: #8e6c4f;
+            margin-bottom: 15px;
+        }
 
         /* Daftar Harga */
-        .price-list-item {
+        .price-list {
+            list-style-type: none;
+        }
+
+        .price-list li {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -145,224 +153,175 @@
             border-bottom: 1px solid #eee;
         }
 
-        .price-list-item:last-child {
+        .price-list li:last-child {
             border-bottom: none;
         }
 
         .variant-name {
-            font-weight: 500;
+            font-weight: bold;
             color: #5d432c;
         }
 
         .variant-price {
             font-weight: bold;
             color: #e67e22;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
-
-        /* --- SECTION KETAHANAN --- */
-        .durability-section {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 60px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .durability-text { flex: 2; }
-        .durability-image {
-            flex: 1;
-            height: 150px;
-            background-image: url('ketahanan.jpg'); /* Gambar Ketahanan */
-            background-size: cover;
-            background-position: center;
-            border-radius: 50%; /* Bulat sesuai piring */
-        }
-
-        .durability-section h2 { color: #8e6c4f; margin-bottom: 15px; text-transform: uppercase; }
-        .durability-section p { font-style: italic; color: #795548; }
 
         /* --- SECTION KONTAK & LOKASI --- */
         .contact-section {
             background-color: #5d432c; /* Cokelat tua untuk footer/kontak */
-            color: #fffdec;
-            padding: 60px 20px;
+            color: #FFF9F0;
+            padding: 80px 20px;
             text-align: center;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
+            border-top-left-radius: 80px;
+            border-top-right-radius: 80px;
         }
 
         .contact-section h2 {
-            margin-bottom: 30px;
+            font-size: 3rem;
+            margin-bottom: 40px;
             text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .info-block {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
         /* Styling Map */
         .map-container {
             width: 100%;
             max-width: 800px;
-            height: 350px;
-            margin: 20px auto;
-            border-radius: 20px;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 30px;
             overflow: hidden;
-            border: 5px solid rgba(255,255,255,0.2);
+            border: 6px solid rgba(255,255,255,0.2);
         }
 
         /* Styling Tombol WA */
         .btn-wa {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             background-color: #25d366;
             color: white;
-            padding: 15px 35px;
+            padding: 18px 40px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 40px;
+            font-size: 1.2rem;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 20px;
+            margin-top: 30px;
             transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn-wa:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
         }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .durability-section { flex-direction: column; text-align: center; }
-            .durability-image { width: 150px; height: 150px; margin: 0 auto; }
+            header h1 { font-size: 3rem; }
+            header p { font-size: 1.5rem; }
+            .about-section { flex-direction: column; text-align: center; }
+            .about-image { height: 250px; }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Balinese&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
-    <h1>Pie Susu Nirmala</h1>
-    <p>Oleh-oleh Khas Bali dengan Resep Otentik</p>
+    <div class="container">
+        <h1>Pie Susu Nirmala</h1>
+        <p>Oleh-oleh Khas Bali dengan Resep Otentik</p>
+    </div>
 </header>
 
 <div class="container">
     
     <section class="about-section">
-        <h2>Kelezatan Asli Pulau Dewata</h2>
-        <p>
-            Pie Susu Nirmala hadir membawa cita rasa klasik Bali yang tak terlupakan. Pinggiran kue yang renyah dipadukan dengan isian custard susu yang lembut dan manis sempurna, menjadikannya pilihan utama wisatawan untuk dibawa pulang sebagai buah tangan istimewa.
-        </p>
+        <div class="about-image"></div>
+        <div class="about-text">
+            <h2>Kelezatan Asli Pulau Dewata</h2>
+            <p>
+                Pie Susu Nirmala hadir membawa cita rasa klasik Bali yang tak terlupakan. Pinggiran kue yang renyah dipadukan dengan isian custard susu yang lembut dan manis sempurna, menjadikannya pilihan utama wisatawan untuk dibawa pulang sebagai buah tangan istimewa.
+            </p>
+        </div>
     </section>
 
-    <h2 class="section-title">Price List Resmi</h2>
+    <h2 class="section-title">Aneka Pie Susu & Kue Khas Bali</h2>
     <div class="price-grid">
         
         <div class="price-card">
-            <div class="card-header bg-blue-grey">Pie Susu Original</div>
+            <div class="product-image product-image-original"></div>
             <div class="card-body">
-                <div class="product-image product-image-original"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 17.000</span>
-                </div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 25 PCS</span>
-                    <span class="variant-price">Rp 40.000</span>
-                </div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 50 PCS</span>
-                    <span class="variant-price">Rp 78.000</span>
-                </div>
+                <h3 class="card-title">Pie Susu Original</h3>
+                <ul class="price-list">
+                    <li>
+                        <span class="variant-name">ISI 10 PCS</span>
+                        <span class="variant-price">Rp 17.000</span>
+                    </li>
+                    <li>
+                        <span class="variant-name">ISI 25 PCS</span>
+                        <span class="variant-price">Rp 40.000</span>
+                    </li>
+                    <li>
+                        <span class="variant-name">ISI 50 PCS</span>
+                        <span class="variant-price">Rp 78.000</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <div class="price-card">
-            <div class="card-header bg-orange">Pie Susu MIX</div>
+            <div class="product-image product-image-mix"></div>
             <div class="card-body">
-                <div class="product-image product-image-mix"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 19.000</span>
-                </div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 25 PCS</span>
-                    <span class="variant-price">Rp 46.000</span>
-                </div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 50 PCS</span>
-                    <span class="variant-price">Rp 90.000</span>
-                </div>
+                <h3 class="card-title">Pie Susu MIX</h3>
+                <ul class="price-list">
+                    <li>
+                        <span class="variant-name">ISI 10 PCS</span>
+                        <span class="variant-price">Rp 19.000</span>
+                    </li>
+                    <li>
+                        <span class="variant-name">ISI 25 PCS</span>
+                        <span class="variant-price">Rp 46.000</span>
+                    </li>
+                    <li>
+                        <span class="variant-name">ISI 50 PCS</span>
+                        <span class="variant-price">Rp 90.000</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
         <div class="price-card">
-            <div class="card-header bg-terracotta">Pie Kacang</div>
+            <div class="product-image product-image-kacang"></div>
             <div class="card-body">
-                <div class="product-image product-image-kacang"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 15.000</span>
-                </div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 50 PCS</span>
-                    <span class="variant-price">Rp 70.000</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="price-card">
-            <div class="card-header bg-blue-grey">Bolu</div>
-            <div class="card-body">
-                <div class="product-image product-image-bolu"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 20.000</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="price-card">
-            <div class="card-header bg-orange">Banana Cake</div>
-            <div class="card-body">
-                <div class="product-image product-image-banana-cake"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 22.000</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="price-card">
-            <div class="card-header bg-terracotta">Brownies</div>
-            <div class="card-body">
-                <div class="product-image product-image-brownies"></div>
-                <div class="price-list-item">
-                    <span class="variant-name">ISI 10 PCS</span>
-                    <span class="variant-price">Rp 28.000</span>
-                </div>
+                <h3 class="card-title">Pie Kacang</h3>
+                <ul class="price-list">
+                    <li>
+                        <span class="variant-name">ISI 10 PCS</span>
+                        <span class="variant-price">Rp 15.000</span>
+                    </li>
+                    <li>
+                        <span class="variant-name">ISI 50 PCS</span>
+                        <span class="variant-price">Rp 70.000</span>
+                    </li>
+                </ul>
             </div>
         </div>
 
     </div>
-
-    <section class="durability-section">
-        <div class="durability-text">
-            <h2>Ketahanan Produk</h2>
-            <p>
-                "Pie Susu Nirmala bertahan selama 1 minggu di suhu ruangan dan bertahan selama 2 minggu di dalam lemari es."
-            </p>
-        </div>
-        <div class="durability-image"></div>
-    </section>
 
 </div>
 
@@ -377,4 +336,22 @@
         </div>
 
         <div class="map-container">
-            <iframe src="https://www
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9189736868843!2d115.1764724!3d-8.730248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246b0a1a0f4db%3A0xe5f92261a8684d!2sJl.%20Raya%20Kuta%2C%20Kuta%2C%20Kec.%20Kuta%2C%20Kabupaten%20Badung%2C%20Bali!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="info-block">
+            <h3>Hubungi Kami Langsung:</h3>
+            <p>Pesan mudah lewat WhatsApp!</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Pie%20Susu%20Nirmala%2C%20saya%20tertarik%20memesan..." class="btn-wa" target="_blank">
+                💬 Pesan via WhatsApp
+            </a>
+        </div>
+
+        <p style="margin-top: 50px; font-size: 0.9rem; opacity: 0.7;">© 2024 Pie Susu Nirmala. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
