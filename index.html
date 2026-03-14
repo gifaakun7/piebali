@@ -3,168 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog & Order - Pie Susu Nirmala Bali</title>
+    <title>Pie Susu Nirmala - Oleh-Oleh Hits Bali</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
+            --bali-orange: #e67e22;
             --bali-gold: #d4af37;
-            --cream-bg: #fffdf2;
             --deep-chocolate: #3e2723;
+            --cream-bg: #fffcf5;
             --white: #ffffff;
-            --wa-green: #25d366;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--cream-bg);
-            color: var(--deep-chocolate);
-            margin: 0; padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--cream-bg); color: var(--deep-chocolate); scroll-behavior: smooth; }
 
-        header {
-            background: linear-gradient(rgba(62, 39, 35, 0.8), rgba(62, 39, 35, 0.8)), 
-                        url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&q=80&w=1200');
-            background-size: cover; background-position: center;
-            padding: 80px 20px; text-align: center;
-            border-bottom: 6px solid var(--bali-gold);
+        /* --- HERO SECTION (Home Page) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&q=80&w=1200'); /* Ganti dengan foto slide 4 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             color: white;
+            padding: 20px;
         }
 
-        .container { max-width: 900px; margin: -40px auto 50px; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.5rem; margin-bottom: 30px; font-weight: 300; }
+        .btn-start { 
+            background: var(--bali-orange); color: white; padding: 15px 40px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; 
+            font-size: 1.2rem; transition: 0.3s;
+        }
+        .btn-start:hover { background: #d35400; transform: scale(1.05); }
 
-        h2 { font-family: 'Playfair Display', serif; text-align: center; color: var(--deep-chocolate); margin-bottom: 25px; border-bottom: 2px solid var(--bali-gold); padding-bottom: 10px; }
+        /* --- PRODUCT GALLERY --- */
+        .section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        .section-title { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 50px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 80px; height: 3px; background: var(--bali-gold); margin: 10px auto; }
 
-        /* Tabel & Input */
-        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        th { background: var(--deep-chocolate); color: var(--bali-gold); padding: 15px; text-align: left; }
-        td { padding: 12px 15px; border-bottom: 1px solid #eee; }
-        .cat-header { background: #fdf8e1; font-weight: bold; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         
-        input[type="number"] { width: 60px; padding: 5px; border: 1px solid var(--bali-gold); border-radius: 5px; }
-
-        /* Form Pemesanan */
-        .order-form { background: #fdfdfd; padding: 25px; border: 2px solid var(--bali-gold); border-radius: 15px; margin-top: 30px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; font-weight: 600; margin-bottom: 5px; }
-        input[type="text"], input[type="date"], select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-
-        .btn-order {
-            display: block; width: 100%; background: var(--wa-green); color: white; padding: 15px;
-            text-align: center; text-decoration: none; font-weight: bold; font-size: 1.1rem;
-            border-radius: 10px; border: none; cursor: pointer; margin-top: 20px;
+        .product-card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; 
+            border: 1px solid #f2e8cf; text-align: center;
         }
+        .product-card:hover { transform: translateY(-10px); }
+        .product-img { width: 100%; height: 200px; background: #eee; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .product-info h3 { margin-bottom: 10px; color: var(--deep-chocolate); }
+        .price { color: var(--bali-orange); font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; display: block; }
+        
+        .qty-control { display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .qty-btn { background: var(--bali-gold); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+        .qty-input { width: 50px; text-align: center; border: 1px solid #ddd; border-radius: 5px; font-weight: bold; }
 
-        .btn-order:hover { background: #21b858; transform: translateY(-2px); }
+        /* --- ORDER FORM --- */
+        .order-container { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 30px rgba(0,0,0,0.05); border: 2px solid var(--bali-gold); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
+        
+        .btn-wa { 
+            display: block; width: 100%; background: #25d366; color: white; 
+            padding: 20px; border: none; border-radius: 15px; font-weight: bold; 
+            font-size: 1.2rem; cursor: pointer; transition: 0.3s; text-align: center;
+        }
+        .btn-wa:hover { background: #1ebd5b; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
 
-        .footer-info { background: var(--deep-chocolate); color: white; padding: 40px 20px; text-align: center; }
+        /* --- INFO KETAHANAN --- */
+        .info-ketahanan { background: #fdf8e1; padding: 20px; border-radius: 15px; border-left: 5px solid var(--bali-gold); margin-bottom: 30px; font-style: italic; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Pie Susu Nirmala</h1>
-    <p>Pilih Pesanan Anda & Kirim Langsung ke WA</p>
-</header>
+    <section class="hero">
+        <h1>Oleh-Oleh Paling Hits Dari Bali!</h1>
+        <p>Pie Susu Nirmala: Renyah, Manis, & Nagih.</p>
+        <a href="#produk" class="btn-start">Belanja Sekarang ➔</a>
+    </section>
 
-<div class="container">
-    <h2>Menu & Pemesanan</h2>
-    
-    <table id="menuTable">
-        <thead>
-            <tr>
-                <th>Produk</th>
-                <th>Harga</th>
-                <th>Jumlah</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="cat-header"><td colspan="3">🥧 Pie Susu Original</td></tr>
-            <tr><td>Isi 10 Pcs</td><td>17.000</td><td><input type="number" class="qty" data-name="Pie Original 10" min="0" value="0"></td></tr>
-            <tr><td>Isi 25 Pcs</td><td>40.000</td><td><input type="number" class="qty" data-name="Pie Original 25" min="0" value="0"></td></tr>
-            <tr><td>Isi 50 Pcs</td><td>78.000</td><td><input type="number" class="qty" data-name="Pie Original 50" min="0" value="0"></td></tr>
+    <section class="section" id="produk">
+        <h2 class="section-title">Pilih Menu Favorit</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" class="product-img" alt="Pie Original 10">
+                <div class="product-info">
+                    <h3>Pie Original (10 Pcs)</h3>
+                    <span class="price">Rp 17.000</span>
+                    <div class="qty-control">
+                        <input type="number" class="qty-input" data-name="Pie Original 10" min="0" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" class="product-img" alt="Pie MIX 25">
+                <div class="product-info">
+                    <h3>Pie MIX (25 Pcs)</h3>
+                    <span class="price">Rp 46.000</span>
+                    <div class="qty-control">
+                        <input type="number" class="qty-input" data-name="Pie MIX 25" min="0" value="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" class="product-img" alt="Banana Cake">
+                <div class="product-info">
+                    <h3>Banana Cake (10 Pcs)</h3>
+                    <span class="price">Rp 22.000</span>
+                    <div class="qty-control">
+                        <input type="number" class="qty-input" data-name="Banana Cake" min="0" value="0">
+                    </div>
+                </div>
+            </div>
             
-            <tr class="cat-header"><td colspan="3">🌈 Pie Susu MIX</td></tr>
-            <tr><td>Isi 10 Pcs</td><td>19.000</td><td><input type="number" class="qty" data-name="Pie MIX 10" min="0" value="0"></td></tr>
-            <tr><td>Isi 25 Pcs</td><td>46.000</td><td><input type="number" class="qty" data-name="Pie MIX 25" min="0" value="0"></td></tr>
-            
-            <tr class="cat-header"><td colspan="3">🍪 Kudapan Lain</td></tr>
-            <tr><td>Banana Cake</td><td>22.000</td><td><input type="number" class="qty" data-name="Banana Cake" min="0" value="0"></td></tr>
-            <tr><td>Brownies</td><td>28.000</td><td><input type="number" class="qty" data-name="Brownies" min="0" value="0"></td></tr>
-        </tbody>
-    </table>
+            </div>
+    </section>
 
-    <div class="order-form">
-        <h3>📋 Detail Pengambilan / Pengantaran</h3>
-        <div class="form-group">
-            <label>Nama Pemesan:</label>
-            <input type="text" id="nama" placeholder="Masukkan nama Anda">
-        </div>
-        <div class="form-group">
-            <label>Metode:</label>
-            <select id="metode">
-                <option value="Ambil di Toko">Ambil di Toko</option>
-                <option value="Pengantaran/Kurir">Pengantaran (Kurir/Gojek)</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Tanggal Diambil/Antar:</label>
-            <input type="date" id="tanggal">
-        </div>
-        <div class="form-group">
-            <label>Alamat Lengkap (Jika Diantar):</label>
-            <textarea id="alamat" rows="2" placeholder="Tulis alamat atau info tambahan"></textarea>
-        </div>
-
-        <button onclick="sendOrder()" class="btn-order">📲 Pesan Sekarang Lewat WA</button>
-    </div>
-</div>
-
-<footer class="footer-info">
-    <p>📍 Lokasi: Jl. Raya Kuta No. 123, Bali</p>
-    <p>© 2024 Pie Susu bali</p>
-</footer>
-
-<script>
-    function sendOrder() {
-        const noWA = "6281337573112";
-        const nama = document.getElementById('nama').value;
-        const metode = document.getElementById('metode').value;
-        const tanggal = document.getElementById('tanggal').value;
-        const alamat = document.getElementById('alamat').value;
-        const qtyInputs = document.querySelectorAll('.qty');
+    <section class="section" id="checkout">
+        <h2 class="section-title">Detail Pesanan</h2>
         
-        let detailPesanan = "";
-        let total = 0;
+        <div class="info-ketahanan">
+            "Pie Susu Nirmala bertahan selama 1 minggu di suhu ruangan dan 2 minggu di dalam lemari es."
+        </div>
 
-        // Cek produk yang dibeli
-        qtyInputs.forEach(input => {
-            let jumlah = parseInt(input.value);
-            if (jumlah > 0) {
-                detailPesanan += `- ${input.getAttribute('data-name')} x${jumlah}\n`;
+        <div class="order-container">
+            <div class="form-group">
+                <label>Nama Lengkap:</label>
+                <input type="text" id="nama" placeholder="Contoh: Budi Santoso">
+            </div>
+            <div class="form-group">
+                <label>Metode Pesanan:</label>
+                <select id="metode">
+                    <option value="Ambil di Toko">Ambil di Toko (Kuta)</option>
+                    <option value="Kirim Kurir/Gojek">Kirim via Kurir/Gojek</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Diambil / Dikirim:</label>
+                <input type="date" id="tanggal">
+            </div>
+            <div class="form-group">
+                <label>Alamat Lengkap / Catatan:</label>
+                <textarea id="alamat" rows="3" placeholder="Tulis alamat pengiriman atau catatan rasa..."></textarea>
+            </div>
+
+            <button onclick="sendToWA()" class="btn-wa">Kirim Pesanan Ke WhatsApp ➔</button>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; background: var(--deep-chocolate); color: white;">
+        <p>© 2026 Pie Susu Nirmala Bali - Oleh-Oleh Asli Bali</p>
+    </footer>
+
+    <script>
+        function sendToWA() {
+            const noWA = "6281234567890"; // GANTI DENGAN NOMOR WA KAMU
+            const nama = document.getElementById('nama').value;
+            const metode = document.getElementById('metode').value;
+            const tanggal = document.getElementById('tanggal').value;
+            const alamat = document.getElementById('alamat').value;
+            
+            let pesanan = "";
+            const inputs = document.querySelectorAll('.qty-input');
+            
+            inputs.forEach(input => {
+                if (parseInt(input.value) > 0) {
+                    pesanan += `- ${input.getAttribute('data-name')} (${input.value} Box)\n`;
+                }
+            });
+
+            if (!nama || pesanan === "" || !tanggal) {
+                alert("Mohon isi Nama, Pilih Produk, dan Tanggal Pengambilan!");
+                return;
             }
-        });
 
-        if (nama === "" || detailPesanan === "" || tanggal === "") {
-            alert("Mohon isi Nama, Tanggal, dan pilih minimal 1 produk!");
-            return;
+            const text = `*PESANAN BARU - PIE SUSU NIRMALA*\n\n` +
+                         `*Detail Produk:*\n${pesanan}\n` +
+                         `*Data Pemesan:*\n` +
+                         `Nama: ${nama}\n` +
+                         `Metode: ${metode}\n` +
+                         `Tanggal: ${tanggal}\n` +
+                         `Catatan/Alamat: ${alamat}\n\n` +
+                         `_Mohon dikonfirmasi totalannya ya Min!_`;
+
+            window.open(`https://wa.me/${noWA}?text=${encodeURIComponent(text)}`, '_blank');
         }
-
-        // Format Pesan WA
-        const text = `Halo Pie Susu Nirmala, saya ingin memesan:\n\n` +
-                     `*Pesanan:*\n${detailPesanan}\n` +
-                     `*Data Pemesan:*\n` +
-                     `- Nama: ${nama}\n` +
-                     `- Metode: ${metode}\n` +
-                     `- Tanggal: ${tanggal}\n` +
-                     `- Alamat/Catatan: ${alamat}\n\n` +
-                     `Mohon segera dikonfirmasi ya, terima kasih!`;
-
-        // Redirect ke WA
-        const encodedText = encodeURIComponent(text);
-        window.open(`https://wa.me/${noWA}?text=${encodedText}`, '_blank');
-    }
-</script>
-
+    </script>
 </body>
 </html>
-
